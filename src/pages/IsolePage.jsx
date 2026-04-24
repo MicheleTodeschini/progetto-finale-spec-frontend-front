@@ -16,6 +16,7 @@ export default function IsolePage() {
 
     const { isole } = useGlobalContext()
     const [searchQuery, setSearchQuery] = useState('')
+    const [category, setCategory] = useState('')
     const debounceSearch = useCallback(debounce(setSearchQuery, 500), [])
 
     const sortedIsland = useMemo(() => {
@@ -24,9 +25,14 @@ export default function IsolePage() {
         if (searchQuery) {
             sorted = sorted.filter(isola => isola.title.toLowerCase().includes(searchQuery.toLowerCase()))
         }
+        if (category) {
+            sorted = sorted.filter(isola => isola.category.toLowerCase() === category.toLowerCase())
+        }
 
         return sorted
-    }, [isole, searchQuery])
+    }, [isole, searchQuery, category])
+
+
 
 
     return (
@@ -38,6 +44,14 @@ export default function IsolePage() {
                     placeholder='Digita qui'
                     onChange={e => debounceSearch(e.target.value)}
                 />
+                <div className='pt-3 pb-3 d-flex gap-2'>
+
+                    <button className='btn' onClick={() => setCategory('')}>Tutte</button>
+                    <button onClick={() => setCategory('Misteriosa')}>Misteriosa</button>
+                    <button onClick={() => setCategory('Pericolosa')}>Pericolosa</button>
+                    <button onClick={() => setCategory('Remota')}>Remota</button>
+                    <button onClick={() => setCategory('Paradisiaca')}>Paradisiaca</button>
+                </div>
                 <div className='row'>
 
 
