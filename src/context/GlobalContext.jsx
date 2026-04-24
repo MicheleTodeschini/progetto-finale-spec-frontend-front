@@ -24,6 +24,27 @@ function GlobalProvider({ children }) {
         }
     }
 
+    async function getIsolaById(id) {
+        try {
+            const response = await fetch(`${URL}/${id}`);
+
+            if (!response.ok) {
+                throw new Error(`Errore HTTP ${response.status}`);
+            }
+
+            const data = await response.json();
+            //console.log(data);
+
+            return data;
+
+        } catch (error) {
+            console.error("Errore nel fetch dell'isola:", error.message);
+            return null;
+        }
+    }
+
+    //getIsolaById(2)
+
     useEffect(() => {
         getIsole();
     }, []);
