@@ -4,6 +4,7 @@ import IsolePage from "./pages/IsolePage"
 import DettaglioIsola from "./pages/DettaglioIsola"
 import PaginaPreferiti from "./pages/PaginaPreferiti"
 import { GlobalProvider } from "./context/GlobalContext"
+import { PreferitiProvider } from "./context/FavouritesContext"
 
 export default function App() {
 
@@ -11,15 +12,18 @@ export default function App() {
   return (
     <>
       <GlobalProvider>
+        <PreferitiProvider>
 
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/isole" element={<IsolePage />} />
-            <Route path="/isola/:id" element={<DettaglioIsola />} />
-            <Route path="/preferiti" element={<PaginaPreferiti />} />
-          </Routes>
-        </BrowserRouter>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/isole" element={<IsolePage />} />
+              <Route path="/isola/:id" element={<DettaglioIsola />} />
+              <Route path="/preferiti" element={<PaginaPreferiti />} />
+            </Routes>
+          </BrowserRouter>
+        </PreferitiProvider>
+
       </GlobalProvider>
 
     </>

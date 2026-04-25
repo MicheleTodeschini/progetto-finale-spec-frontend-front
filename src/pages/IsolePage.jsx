@@ -57,7 +57,7 @@ export default function IsolePage() {
 
                     {
                         sortedIsland.map(isola => (
-                            <IslandCard {...isola} key={isola.id} />
+                            <IslandCard isola={isola} key={isola.id} />
                         ))
                     }
                 </div>

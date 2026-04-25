@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { prefetchDNS } from "react-dom";
+
 
 const FavouritesContext = createContext()
 
@@ -8,14 +8,14 @@ function PreferitiProvider({ children }) {
     const [favourites, setFavourites] = useState([])
 
     function handleFavourites(island) {
-        const alreadyFavourites = () => {
-            return favourites.some(favourite => favourite.id === island.id)
-        }
+        const alreadyFavourites = favourites.some(favourite => favourite.id === island.id)
 
-        if (alreadyFavourites(island)) {
+        if (alreadyFavourites) {
             setFavourites(curr => curr.filter(favourite => favourite.id !== island.id))
         } else {
             setFavourites(curr => [...curr, island])
+
+
         }
     }
 
@@ -26,7 +26,7 @@ function PreferitiProvider({ children }) {
 
     return (
 
-        <FavouritesContext.Provider value={{ favourites, setFavourites }}>
+        <FavouritesContext.Provider value={{ favourites, setFavourites, handleFavourites, clearFavourites }}>
             {children}
         </FavouritesContext.Provider>
 

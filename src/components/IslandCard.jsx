@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useFavouritesContext } from "../context/FavouritesContext";
 
-const IslandCard = React.memo(({ id, title, category, }) => {
+const IslandCard = React.memo(({ isola }) => {
+
+    const { favourites, handleFavourites, } = useFavouritesContext()
 
     return (
         <>
@@ -9,9 +12,12 @@ const IslandCard = React.memo(({ id, title, category, }) => {
                 <div className="col-3 mb-2 ">
                     <div className="card border border-secondary">
 
-                        <p className="text-dark">{title}</p>
-                        <p>{category}</p>
-                        <i className="bi bi-heart"></i>
+                        <p className="text-dark">{isola.title}</p>
+                        <p>{isola.category}</p>
+                        <button onClick={() => handleFavourites(isola)}>
+                            <i className="bi bi-heart"></i>
+
+                        </button>
                     </div>
                 </div>
             }
