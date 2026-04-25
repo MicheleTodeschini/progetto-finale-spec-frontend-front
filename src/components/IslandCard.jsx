@@ -11,7 +11,7 @@ const IslandCard = React.memo(({ id, title, category, }) => {
 
                         <p className="text-dark">{title}</p>
                         <p>{category}</p>
-
+                        <i className="bi bi-heart"></i>
                     </div>
                 </div>
             }
