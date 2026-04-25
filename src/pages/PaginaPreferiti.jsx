@@ -8,11 +8,12 @@ export default function PaginaPreferiti() {
         <>
             <p>qui vci vanno i preferiti</p>
 
-            {/*     {
-                favourites.map(favourite => {
+
+            {
+                favourites.map(favourite => (
                     <p>{favourite.title}</p>
-                })
-            } */}
+                ))
+            }
         </>
     )
 }

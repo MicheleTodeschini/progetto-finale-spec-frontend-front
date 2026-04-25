@@ -1,6 +1,7 @@
 import { useMemo, useState, useCallback } from 'react'
 import IslandCard from '../components/IslandCard'
 import { useGlobalContext } from '../context/GlobalContext'
+import Header from '../components/Header'
 
 function debounce(callback, delay) {
     let timer
@@ -37,6 +38,7 @@ export default function IsolePage() {
 
     return (
         <>
+            <Header />
             <p>qui vanno le isole</p>
             <div className='container'>
                 <input
