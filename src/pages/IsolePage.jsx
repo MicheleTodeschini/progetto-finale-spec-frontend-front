@@ -2,7 +2,6 @@ import { useMemo, useState, useCallback } from 'react'
 import IslandCard from '../components/IslandCard'
 import { useGlobalContext } from '../context/GlobalContext'
 import Header from '../components/Header'
-
 import ComparativeModal from '../components/ComparativeModal'
 
 function debounce(callback, delay) {
