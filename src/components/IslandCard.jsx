@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useFavouritesContext } from "../context/FavouritesContext";
 
-const IslandCard = React.memo(({ isola }) => {
+const IslandCard = React.memo(({ isola, setShow }) => {
 
     const { favourites, handleFavourites, } = useFavouritesContext()
 
@@ -18,6 +18,7 @@ const IslandCard = React.memo(({ isola }) => {
                             <i className="bi bi-heart"></i>
 
                         </button>
+                        <button onClick={() => setShow(true)}>Compara</button>
                     </div>
                 </div>
             }

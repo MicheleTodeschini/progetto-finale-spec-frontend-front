@@ -3,6 +3,8 @@ import IslandCard from '../components/IslandCard'
 import { useGlobalContext } from '../context/GlobalContext'
 import Header from '../components/Header'
 
+import ComparativeModal from '../components/ComparativeModal'
+
 function debounce(callback, delay) {
     let timer
     return (value) => {
@@ -19,6 +21,8 @@ export default function IsolePage() {
     const [searchQuery, setSearchQuery] = useState('')
     const [category, setCategory] = useState('')
     const debounceSearch = useCallback(debounce(setSearchQuery, 500), [])
+
+    const [show, setShow] = useState(false)
 
     const sortedIsland = useMemo(() => {
         let sorted = [...isole]
@@ -59,10 +63,15 @@ export default function IsolePage() {
 
                     {
                         sortedIsland.map(isola => (
-                            <IslandCard isola={isola} key={isola.id} />
+                            <IslandCard setShow={setShow} isola={isola} key={isola.id} />
                         ))
                     }
                 </div>
+                <ComparativeModal
+                    isola={isole}
+                    show={show}
+                    onClose={() => setShow(false)}
+                />
             </div>
 
         </>
