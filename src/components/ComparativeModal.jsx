@@ -9,7 +9,7 @@ export default function ComparativeModal({ isola, onClose = () => { }, show }) {
             <div className='modal-container'>
                 <div className='custom-modal'>
 
-                    <button className='btn'>Chiudi</button>
+                    <button className='btn' onClick={onClose}>Chiudi</button>
                 </div>
 
 
