@@ -23,10 +23,14 @@ function PreferitiProvider({ children }) {
         setFavourites([])
     }
 
+    function isFavourite(island) {
+        return favourites.some(favourite => favourite.id === island.id)
+    }
+
 
     return (
 
-        <FavouritesContext.Provider value={{ favourites, setFavourites, handleFavourites, clearFavourites }}>
+        <FavouritesContext.Provider value={{ favourites, setFavourites, handleFavourites, clearFavourites, isFavourite }}>
             {children}
         </FavouritesContext.Provider>
 

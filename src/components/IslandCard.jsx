@@ -4,7 +4,9 @@ import { useFavouritesContext } from "../context/FavouritesContext";
 
 const IslandCard = React.memo(({ isola, setShow }) => {
 
-    const { favourites, handleFavourites, } = useFavouritesContext()
+    const { favourites, handleFavourites, isFavourite } = useFavouritesContext()
+
+    const checkIfIsFavourite = isFavourite(isola)
 
     return (
         <>
@@ -15,7 +17,7 @@ const IslandCard = React.memo(({ isola, setShow }) => {
                         <p className="text-dark">{isola.title}</p>
                         <p>{isola.category}</p>
                         <button onClick={() => handleFavourites(isola)}>
-                            <i className="bi bi-heart"></i>
+                            <i className={`bi ${checkIfIsFavourite ? 'bi-heart-fill' : ' bi-heart'} `}></i>
 
                         </button>
                         <button onClick={() => setShow(true)}>Compara</button>
