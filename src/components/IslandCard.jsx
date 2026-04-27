@@ -1,10 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useFavouritesContext } from "../context/FavouritesContext";
+import { useComparativeContext } from "../context/ComparativeContext";
 
 const IslandCard = React.memo(({ isola, setShow }) => {
 
     const { favourites, handleFavourites, isFavourite } = useFavouritesContext()
+
+    const { handleCompare } = useComparativeContext()
+
+    function openModal() {
+        if (handleCompare.length === 2) {
+            setShow(true)
+        } else {
+            alert('aggiungi un altra da comparare')
+        }
+    }
 
     const checkIfIsFavourite = isFavourite(isola)
 
@@ -20,7 +31,7 @@ const IslandCard = React.memo(({ isola, setShow }) => {
                             <i className={`bi ${checkIfIsFavourite ? 'bi-heart-fill' : ' bi-heart'} `}></i>
 
                         </button>
-                        <button onClick={() => setShow(true)}>Compara</button>
+                        <button onClick={handleCompare}>Compara</button>
                     </div>
                 </div>
             }
