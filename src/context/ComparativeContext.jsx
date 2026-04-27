@@ -12,15 +12,17 @@ function ComparativeProvider({ children }) {
             setIslandToCompare(curr => curr.filter(toCompare => toCompare.id !== island.id))
         } else {
             setIslandToCompare(curr => [...curr, island])
-
-
         }
+    }
+
+    function isToCompare(island) {
+        return islandToCompare.some(toCompare => toCompare.id === island.id)
     }
 
 
 
     return (
-        <ComparativeContext.Provider value={{ islandToCompare, setIslandToCompare, handleCompare }} >
+        <ComparativeContext.Provider value={{ islandToCompare, setIslandToCompare, handleCompare, isToCompare }} >
             {children}
         </ComparativeContext.Provider>
     )
