@@ -51,7 +51,7 @@ function GlobalProvider({ children }) {
 
     return (
 
-        <GlobalContext.Provider value={{ isole }}>
+        <GlobalContext.Provider value={{ isole, getIsolaById }}>
             {children}
         </GlobalContext.Provider>
 
