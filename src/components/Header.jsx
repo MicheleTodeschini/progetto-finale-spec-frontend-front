@@ -1,4 +1,5 @@
 import { NavLink, Link } from "react-router-dom"
+import logo from "../img/logo.webp";
 
 export default function Header() {
 
@@ -10,9 +11,10 @@ export default function Header() {
                 <NavLink to={'/'}>
                     Home
                 </NavLink>
+                <img src={logo} className="logo" />
                 <NavLink to={'/preferiti'}>
 
-                    <button>
+                    <button className="btn">
                         <i className="bi bi-heart"></i>
                     </button>
                 </NavLink>

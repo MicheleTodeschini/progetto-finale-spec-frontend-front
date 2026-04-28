@@ -51,11 +51,11 @@ export default function IsolePage() {
                 />
                 <div className='pt-3 pb-3 d-flex gap-2'>
 
-                    <button className='btn' onClick={() => setCategory('')}>Tutte</button>
-                    <button onClick={() => setCategory('Misteriosa')}>Misteriosa</button>
-                    <button onClick={() => setCategory('Pericolosa')}>Pericolosa</button>
-                    <button onClick={() => setCategory('Remota')}>Remota</button>
-                    <button onClick={() => setCategory('Paradisiaca')}>Paradisiaca</button>
+                    <button className='btn btn-category' onClick={() => setCategory('')}>Tutte</button>
+                    <button className='btn btn-category' onClick={() => setCategory('Misteriosa')}>Misteriosa</button>
+                    <button className='btn btn-category' onClick={() => setCategory('Pericolosa')}>Pericolosa</button>
+                    <button className='btn btn-category' onClick={() => setCategory('Remota')}>Remota</button>
+                    <button className='btn btn-category' onClick={() => setCategory('Paradisiaca')}>Paradisiaca</button>
                 </div>
                 <div className='row'>
 

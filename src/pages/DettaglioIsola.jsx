@@ -1,12 +1,14 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useGlobalContext } from '../context/GlobalContext'
 import { useEffect, useState } from 'react'
+import Header from '../components/Header'
 
 export default function DettaglioIsola() {
 
     const { getIsolaById } = useGlobalContext()
     const { id } = useParams()
     const [isola, setIsola] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function fetchIsola() {
@@ -15,18 +17,74 @@ export default function DettaglioIsola() {
         }
         fetchIsola()
     }, [id])
-    console.log(isola);
 
-
+    const categoryToColor = {
+        'Misteriosa': 'bg-warning ',
+        'Pericolosa': 'bg-danger',
+        'Remota': 'bg-success',
+        'Paradisiaca': 'bg-info '
+    }
 
 
 
 
     return (
         <>
+            <Header />
+            <button className="btn btn-outline-info mb-4" onClick={() => navigate(-1)}>
 
-            <p>qui la singola isola</p>
-            <h1>{isola.title}</h1>
+                <i className="bi bi-arrow-left back-arrow text-info"></i>Torna indietro
+            </button>
+            <div className='container'>
+                <img className='w-100' src={isola.image} alt={isola.title} />
+                <div className="card-body p-4">
+
+                    <h1 className="card-title mb-3">{isola.title}</h1>
+
+                    <span className={`badge ${categoryToColor[isola.category]} mb-3`}>
+                        {isola.category}
+                    </span>
+
+                    <div className="row g-3">
+
+                        <div className="col-6">
+                            <strong>Mare:</strong>
+                            <p className="mb-1">{isola.sea}</p>
+                        </div>
+
+                        <div className="col-6">
+                            <strong>Paese:</strong>
+                            <p className="mb-1">{isola.country}</p>
+                        </div>
+
+                        <div className="col-6">
+                            <strong>Continente:</strong>
+                            <p className="mb-1">{isola.continent}</p>
+                        </div>
+
+                        <div className="col-6">
+                            <strong>Clima:</strong>
+                            <p className="mb-1">{isola.climate}</p>
+                        </div>
+
+                    </div>
+
+                    <hr />
+
+                    <div className="mt-3">
+                        <strong>Caratteristiche:</strong>
+                        <p>{isola.characteristics}</p>
+                    </div>
+
+                    <div>
+                        <strong>Specie endemiche:</strong>
+                        <p>{isola.endemicSpecies ? 'Si, ci sono' : 'No, non ci sono'}</p>
+                    </div>
+
+                </div>
+
+            </div>
+
         </>
     )
 }

@@ -34,3 +34,18 @@
     color: aquamarine;
      transform: scale(1.2);
 }
+
+.btn-category {
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    border-color: aqua;
+}
+
+.btn-category:hover {
+    transform: translateY(-1px);
+    border-color: blue;
+}
+
+.logo {
+    height: 100px;
+}
