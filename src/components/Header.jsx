@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom"
-import logo from "../img/logo.webp";
+import logo from "../img/logo.png";
 
 export default function Header() {
 
@@ -7,17 +7,20 @@ export default function Header() {
     return (
 
         <>
-            <div className="d-flex p-3 justify-content-between align-items-center">
-                <NavLink to={'/'}>
+            <div className="header d-flex justify-content-center align-items-center gap-4 px-4">
+
+                <NavLink to="/" className="text-white text-decoration-none">
                     Home
                 </NavLink>
-                <img src={logo} className="logo" />
-                <NavLink to={'/preferiti'}>
 
-                    <button className="btn">
+                <img src={logo} className="logo" alt="logo" />
+
+                <NavLink to="/preferiti">
+                    <button className="btn text-white">
                         <i className="bi bi-heart"></i>
                     </button>
                 </NavLink>
+
             </div>
         </>
     )

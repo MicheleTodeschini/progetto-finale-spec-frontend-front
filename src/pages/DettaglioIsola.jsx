@@ -30,14 +30,18 @@ export default function DettaglioIsola() {
 
     return (
         <>
+
+
             <Header />
-            <button className="btn btn-outline-info mb-4" onClick={() => navigate(-1)}>
+            <button className="btn btn-outline-info mb-2" onClick={() => navigate(-1)}>
 
                 <i className="bi bi-arrow-left back-arrow text-info"></i>Torna indietro
             </button>
             <div className='container'>
-                <img className='w-100' src={isola.image} alt={isola.title} />
-                <div className="card-body p-4">
+
+
+                <img className='img-dettaglio' src={isola.image} alt={isola.title} />
+                <div className="card-body ">
 
                     <h1 className="card-title mb-3">{isola.title}</h1>
 
@@ -45,7 +49,7 @@ export default function DettaglioIsola() {
                         {isola.category}
                     </span>
 
-                    <div className="row g-3">
+                    <div className="row">
 
                         <div className="col-6">
                             <strong>Mare:</strong>
@@ -84,6 +88,7 @@ export default function DettaglioIsola() {
                 </div>
 
             </div>
+
 
         </>
     )

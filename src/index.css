@@ -46,6 +46,83 @@
     border-color: blue;
 }
 
+.header {
+  background: linear-gradient(135deg, #005b98, #2196f3);
+  padding: 7px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 .logo {
-    height: 100px;
+  height: 80px;
+}
+
+.img-dettaglio {
+    width: 100%;
+    max-width: 600px;
+    max-height: 40%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.title {
+    margin-top: 80px;
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    max-width: 800px;
+}
+
+
+.btn-full-island {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    background: #00bcd4;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-full-island:hover {
+    background: white;
+    transform: scale(1.05);
+    color: #00bcd4
+}
+
+.bg-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    max-height: 100;
 }
