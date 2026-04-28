@@ -42,7 +42,7 @@ export default function IsolePage() {
     return (
         <>
             <Header />
-            <p>qui vanno le isole</p>
+
             <div className='container'>
                 <input
                     type='text'

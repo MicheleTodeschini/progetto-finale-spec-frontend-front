@@ -24,15 +24,40 @@ const IslandCard = React.memo(({ isola, setShow }) => {
         <>
             {
                 <div className="col-3 mb-2 ">
-                    <div className="card border border-secondary">
+                    <div className="card border border-secondary h-100 w-100">
 
-                        <p className="text-dark">{isola.title}</p>
-                        <p>{isola.category}</p>
-                        <button onClick={() => handleFavourites(isola)}>
-                            <i className={`bi ${checkIfIsFavourite ? 'bi-heart-fill' : ' bi-heart'} `}></i>
+                        <div className="card-body d-flex flex-column">
+                            <section className="d-flex justify-content-between">
+                                <p className="fw-bold">{isola.title}</p>
+                                <button className="btn heart" onClick={() => handleFavourites(isola)}>
+                                    <i className={`bi ${checkIfIsFavourite ? 'bi-heart-fill heart-active' : ' bi-heart'} `}></i>
 
-                        </button>
-                        <button onClick={() => handleCompare(isola)}>{checkIfIsToCompare ? 'selezionato' : 'compara'}</button>
+                                </button>
+                            </section>
+                            <p>{isola.category}</p>
+
+                        </div>
+
+                        <div className="card-body d-flex gap-2">
+
+                            <button
+                                className={`btn btn-sm ${checkIfIsToCompare ? 'btn-success' : 'btn-outline-primary'} flex-fill`}
+                                onClick={() => handleCompare(isola)}
+                            >
+
+                                {checkIfIsToCompare ? 'Selezionato' : 'Compara'}
+                            </button>
+                            <NavLink to={`/isola/${isola.id}`}>
+
+                                <button className="btn btn-sm btn-dark flex-fill">
+                                    <i className="bi bi-eye me-1"></i>
+                                    Dettagli
+                                </button>
+                            </NavLink>
+
+                        </div>
+
+
                     </div>
                 </div>
             }

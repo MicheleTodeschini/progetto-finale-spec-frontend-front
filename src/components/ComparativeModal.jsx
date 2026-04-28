@@ -41,34 +41,50 @@ export default function ComparativeModal({ onClose = () => { }, show }) {
         show && ReactDOM.createPortal(
             <div className='modal-container'>
                 <div className='custom-modal'>
-                    <div className='container d-flex'>
-                        <div className='left'>
+                    <div className='container d-flex row'>
+                        <div className='col-6'>
 
-                            <div class="card" >
-                                <img class="card-img-top" src={comparedIsland[0]?.island?.image} alt="Card image cap" />
-                                <div class="card-body">
-                                    <h5 class="card-title">{comparedIsland[0]?.island.title}</h5>
-                                    <p class="card-text">{comparedIsland[0]?.island.continent}</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <div className="card h-100 w-100" >
+                                <img className="card-img-top img-comparative-modal" src={comparedIsland[0]?.island?.image} alt="Card image cap" />
+                                <div className="card-body">
+                                    <h5 className="card-title">{comparedIsland[0]?.island.title}</h5>
+                                    <p className="card-text"> <span className="fw-bold">Categoria: </span> {comparedIsland[0]?.island.category}</p>
+                                    <p className="card-text"> <span className="fw-bold">Mare: </span> {comparedIsland[0]?.island.sea}</p>
+                                    <p className="card-text"> <span className="fw-bold">Nazione: </span> {comparedIsland[0]?.island.country}</p>
+                                    <p className="card-text"> <span className="fw-bold">Continente: </span> {comparedIsland[0]?.island.continent}</p>
+                                    <p className="card-text"> <span className="fw-bold">Tipo di clima: </span> {comparedIsland[0]?.island.climate}</p>
+                                    <p className="card-text"> <span className="fw-bold">Specie Endemiche: </span> {comparedIsland[0]?.island.endemicSpecies ? 'Si, ci sono' : 'No, non ci sono'}</p>
+                                    <p className="card-text"> <span className="fw-bold">Caratteristiche: </span> {comparedIsland[0]?.island.characteristics}</p>
+
                                 </div>
 
                             </div>
 
                         </div>
-                        <div className='right'>
-                            <div class="card" >
-                                <img class="card-img-top" src={comparedIsland[1]?.island?.image} alt="Card image cap" />
-                                <div class="card-body">
-                                    <h5 class="card-title">{comparedIsland[1]?.island.title}</h5>
-                                    <p class="card-text">{comparedIsland[1]?.island.continent}</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div className='col-6'>
+                            <div className="card h-100 w-100" >
+                                <img className="card-img-top img-comparative-modal" src={comparedIsland[1]?.island?.image} alt="Card image cap" />
+                                <div className="card-body">
+                                    <h5 className="card-title">{comparedIsland[1]?.island.title}</h5>
+                                    <p className="card-text"> <span className="fw-bold">Categoria: </span> {comparedIsland[1]?.island.category}</p>
+                                    <p className="card-text"> <span className="fw-bold">Mare: </span> {comparedIsland[1]?.island.sea}</p>
+                                    <p className="card-text"> <span className="fw-bold">Nazione: </span> {comparedIsland[1]?.island.country}</p>
+                                    <p className="card-text"> <span className="fw-bold">Continente: </span> {comparedIsland[1]?.island.continent}</p>
+                                    <p className="card-text"> <span className="fw-bold">Tipo di clima: </span> {comparedIsland[1]?.island.climate}</p>
+                                    <p className="card-text"> <span className="fw-bold">Specie Endemiche </span> {comparedIsland[1]?.island.endemicSpecies ? 'Si, ci sono' : 'No, non ci sono'}</p>
+                                    <p className="card-text"> <span className="fw-bold">Caratteristiche: </span> {comparedIsland[1]?.island.characteristics}</p>
+
                                 </div>
 
                             </div>
                         </div>
                     </div>
 
-                    <button className='btn' onClick={handleClose} >Chiudi</button>
+                    <div className="d-flex justify-content-center mt-3">
+                        <button className='btn btn-danger' onClick={handleClose}>
+                            Chiudi
+                        </button>
+                    </div>
                 </div>
 
 
