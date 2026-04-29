@@ -1,6 +1,7 @@
 import { useFavouritesContext } from "../context/FavouritesContext"
 import Header from "../components/Header"
 import { useNavigate } from "react-router-dom"
+import IslandCard from "../components/IslandCard"
 
 export default function PaginaPreferiti() {
 
@@ -11,18 +12,23 @@ export default function PaginaPreferiti() {
     return (
         <>
             <Header />
-            <button className="btn btn-outline-info mb-4" onClick={() => navigate(-1)}>
+            <div className="container">
+                <button className="btn btn-outline-info mb-4 mt-4" onClick={() => navigate(-1)}>
 
-                <i className="bi bi-arrow-left back-arrow text-info"></i>Torna indietro
-            </button>
-            <p>qui vci vanno i preferiti</p>
+                    <i className="bi bi-arrow-left back-arrow text-info"></i>Torna indietro
+                </button>
+                <div className="row">
+                    {
+                        favourites.map(favourite => (
+                            <IslandCard isola={favourite} />
+                        ))
+                    }
+
+                </div>
+
+            </div>
 
 
-            {
-                favourites.map(favourite => (
-                    <p>{favourite.title}</p>
-                ))
-            }
         </>
     )
 }
