@@ -24,7 +24,7 @@ const IslandCard = React.memo(({ isola, setShow }) => {
         <>
             {
                 <div className="col-3 mb-2 ">
-                    <div className="card border border-secondary h-100 w-100">
+                    <div className="card border  h-100 w-100">
 
                         <div className="card-body d-flex flex-column">
                             <section className="d-flex justify-content-between">
@@ -41,7 +41,7 @@ const IslandCard = React.memo(({ isola, setShow }) => {
                         <div className="card-body d-flex gap-2">
 
                             <button
-                                className={`btn btn-sm ${checkIfIsToCompare ? 'btn-success' : 'btn-outline-primary'} flex-fill`}
+                                className={`btn btn-sm ${checkIfIsToCompare ? 'compara-selected' : 'compara-not-selected'} flex-fill`}
                                 onClick={() => handleCompare(isola)}
                             >
 

@@ -1,5 +1,9 @@
 @import url('bootstrap');
 
+.header-heart:hover{ 
+     transform: scale(1.2);
+}
+
 .modal-container {
     position: fixed;
     top: 0;
@@ -38,12 +42,14 @@
 .btn-category {
     border-radius: 20px;
     transition: all 0.2s ease;
-    border-color: aqua;
+    /* border-color: aqua; */
+    background-color: rgb(155, 122, 15);
+    color: white;
 }
 
 .btn-category:hover {
     transform: translateY(-1px);
-    border-color: blue;
+    border-color: black;
 }
 
 .header {
@@ -125,4 +131,62 @@
     object-fit: cover;
     z-index: -1;
     max-height: 100;
+}
+
+.btn-not-found {
+    border: none;
+    background: #00bcd4;
+    color: white;
+    border-radius: 10px;
+     transition: 0.3s;
+}
+
+.btn-not-found:hover {
+    background: white;
+    transform: scale(1.05);
+    color: #00bcd4;
+    
+    
+}
+
+.footer {
+  background: linear-gradient(135deg, #005b98, #2196f3);
+  padding: 7px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo-footer {
+    height: 150px;
+}
+
+.input-search {
+    border-radius: 10px;
+    
+}
+
+.main {
+    background: url('./img/sabbia.jpg');
+    background-size: cover;
+    min-height: 80%;
+}
+
+.compara-selected {
+    background: linear-gradient(135deg, #005b98, #2196f3);
+    color: white;
+}
+
+.compara-selected:hover {
+    background: linear-gradient(135deg, #005b98, #2196f3);
+    color: white;
+}
+
+.compara-not-selected {
+  border: 1px solid #2196f3;
+  color: #2196f3;
+  background: transparent;
+}
+
+.compara-not-selected:hover {
+   background: linear-gradient(135deg, #005b98, #2196f3);
+  color: white;
 }

@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom"
 import Header from "../components/Header"
 import gif from '../img/vid_socotra.gif'
+import Footer from "../components/Footer"
 
 
 export default function HomePage() {
@@ -22,6 +23,7 @@ export default function HomePage() {
                     </NavLink>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

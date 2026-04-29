@@ -2,6 +2,7 @@ import { useFavouritesContext } from "../context/FavouritesContext"
 import Header from "../components/Header"
 import { useNavigate } from "react-router-dom"
 import IslandCard from "../components/IslandCard"
+import Footer from "../components/Footer"
 
 export default function PaginaPreferiti() {
 
@@ -27,7 +28,7 @@ export default function PaginaPreferiti() {
                 </div>
 
             </div>
-
+            <Footer />
 
         </>
     )

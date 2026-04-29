@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useGlobalContext } from '../context/GlobalContext'
 import { useEffect, useState } from 'react'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default function DettaglioIsola() {
 
@@ -89,6 +90,7 @@ export default function DettaglioIsola() {
 
             </div>
 
+            <Footer />
 
         </>
     )

@@ -3,6 +3,7 @@ import IslandCard from '../components/IslandCard'
 import { useGlobalContext } from '../context/GlobalContext'
 import Header from '../components/Header'
 import ComparativeModal from '../components/ComparativeModal'
+import Footer from '../components/Footer'
 
 function debounce(callback, delay) {
     let timer
@@ -42,37 +43,41 @@ export default function IsolePage() {
     return (
         <>
             <Header />
+            <div className='main'>
 
-            <div className='container'>
-                <input
-                    type='text'
-                    placeholder='Digita qui'
-                    onChange={e => debounceSearch(e.target.value)}
-                />
-                <div className='pt-3 pb-3 d-flex gap-2'>
+                <div className='container '>
+                    <input
+                        type='text'
+                        placeholder="Cerca un'isola"
+                        onChange={e => debounceSearch(e.target.value)}
+                        className='mt-3 input-search'
+                    />
+                    <div className='pt-3 pb-3 d-flex gap-2'>
 
-                    <button className='btn btn-category' onClick={() => setCategory('')}>Tutte</button>
-                    <button className='btn btn-category' onClick={() => setCategory('Misteriosa')}>Misteriosa</button>
-                    <button className='btn btn-category' onClick={() => setCategory('Pericolosa')}>Pericolosa</button>
-                    <button className='btn btn-category' onClick={() => setCategory('Remota')}>Remota</button>
-                    <button className='btn btn-category' onClick={() => setCategory('Paradisiaca')}>Paradisiaca</button>
+                        <button className='btn btn-category' onClick={() => setCategory('')}>Tutte</button>
+                        <button className='btn btn-category' onClick={() => setCategory('Misteriosa')}>Misteriosa</button>
+                        <button className='btn btn-category' onClick={() => setCategory('Pericolosa')}>Pericolosa</button>
+                        <button className='btn btn-category' onClick={() => setCategory('Remota')}>Remota</button>
+                        <button className='btn btn-category' onClick={() => setCategory('Paradisiaca')}>Paradisiaca</button>
+                    </div>
+                    <div className='row'>
+
+
+                        {
+                            sortedIsland.map(isola => (
+                                <IslandCard setShow={setShow} isola={isola} key={isola.id} />
+                            ))
+                        }
+                    </div>
+                    <ComparativeModal
+                        isola={isole}
+                        show={show}
+                        onClose={() => setShow(false)}
+                    />
                 </div>
-                <div className='row'>
-
-
-                    {
-                        sortedIsland.map(isola => (
-                            <IslandCard setShow={setShow} isola={isola} key={isola.id} />
-                        ))
-                    }
-                </div>
-                <ComparativeModal
-                    isola={isole}
-                    show={show}
-                    onClose={() => setShow(false)}
-                />
             </div>
 
+            <Footer />
         </>
     )
 }

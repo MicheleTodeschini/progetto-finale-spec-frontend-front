@@ -16,7 +16,7 @@ export default function Header() {
                 <img src={logo} className="logo" alt="logo" />
 
                 <NavLink to="/preferiti">
-                    <button className="btn text-white">
+                    <button className="btn text-white header-heart">
                         <i className="bi bi-heart"></i>
                     </button>
                 </NavLink>
