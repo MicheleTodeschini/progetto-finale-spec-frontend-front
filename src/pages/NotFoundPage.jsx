@@ -1,5 +1,6 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import { NavLink } from "react-router-dom"
 
 export default function NotFoundPage() {
 
@@ -7,15 +8,19 @@ export default function NotFoundPage() {
     return (
         <>
             <Header />
-            <div className="container">
+            <div className="main ">
 
-                <h1>Non abbiamo ancora scoperto quest'isola, ma ne abbiamo molte già scoperte!</h1>
+                <div className="container text-button-not-found">
 
-                <button className="btn-not-found">Torna alla home!</button>
+                    <h1 className="title-not-found">Non abbiamo ancora scoperto quest'isola, ma ne abbiamo molte già scoperte!</h1>
 
-                <video width='300'>
-                    <source src="https://www.youtube.com/watch?v=QRUy_Q3HJp8" />
-                </video>
+                    <NavLink to={'/'}>
+
+                        <button className="btn-not-found">Torna alla home!</button>
+                    </NavLink>
+
+
+                </div>
             </div>
             <Footer />
         </>

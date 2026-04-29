@@ -13,7 +13,7 @@ export default function HomePage() {
                 <img src={gif} className="bg-gif" />
                 <div className="overlay">
                     <h1 className="title">
-                        Vieni a scoprire le nostre isole esotiche e inusuali!
+                        Vieni a scoprire le nostre isole esotiche <br></br>e inusuali!
                     </h1>
 
                     <NavLink to="/isole">

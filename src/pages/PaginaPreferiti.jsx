@@ -13,20 +13,23 @@ export default function PaginaPreferiti() {
     return (
         <>
             <Header />
-            <div className="container">
-                <button className="btn btn-outline-info mb-4 mt-4" onClick={() => navigate(-1)}>
+            <div className="main">
 
-                    <i className="bi bi-arrow-left back-arrow text-info"></i>Torna indietro
-                </button>
-                <div className="row">
-                    {
-                        favourites.map(favourite => (
-                            <IslandCard isola={favourite} />
-                        ))
-                    }
+                <div className="container">
+                    <button className="btn btn-back mb-4  mt-4" onClick={() => navigate(-1)}>
+
+                        <i className="bi bi-arrow-left back-arrow arrow-back"></i>Torna indietro
+                    </button>
+                    <div className="row">
+                        {
+                            favourites.map(favourite => (
+                                <IslandCard isola={favourite} />
+                            ))
+                        }
+
+                    </div>
 
                 </div>
-
             </div>
             <Footer />
 
