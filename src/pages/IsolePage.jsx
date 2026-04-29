@@ -21,6 +21,7 @@ export default function IsolePage() {
     const [searchQuery, setSearchQuery] = useState('')
     const [category, setCategory] = useState('')
     const debounceSearch = useCallback(debounce(setSearchQuery, 500), [])
+    const [sortByAToZ, setSortByAToZ] = useState('crescente')
 
     const [show, setShow] = useState(false)
 
@@ -34,14 +35,25 @@ export default function IsolePage() {
             sorted = sorted.filter(isola => isola.category.toLowerCase() === category.toLowerCase())
         }
 
+        if (sortByAToZ === 'crescente') {
+            sorted.sort((a, b) => a.title.localeCompare(b.title))
+        } else {
+            sorted.sort((a, b) => b.title.localeCompare(a.title))
+        }
+
         return sorted
-    }, [isole, searchQuery, category])
+    }, [isole, searchQuery, category, sortByAToZ])
 
     const inputRef = useRef(null)
     function handleFocusOnClick() {
         inputRef.current.focus()
     }
-
+    const categories = [
+        'Paradisiaca',
+        'Remota',
+        'Misteriosa',
+        'Pericolosa'
+    ]
 
 
     return (
@@ -57,14 +69,23 @@ export default function IsolePage() {
                         className='mt-3 input-search'
                         ref={inputRef}
                     />
-                    <div className='pt-3 pb-3 d-flex gap-2'>
+                    <div className='pt-3 pb-3 pr-3 d-flex gap-4 justify-content-between'>
+                        <div className='d-flex gap-2'>
+                            <button className='btn btn-category' onClick={() => setCategory('')}>Tutte</button>
+                            {
+                                categories.map(categoria => (
+                                    <button className='btn btn-category' onClick={() => setCategory(categoria)}>{categoria}</button>
+                                ))
+                            }
 
-                        <button className='btn btn-category' onClick={() => setCategory('')}>Tutte</button>
-                        <button className='btn btn-category' onClick={() => setCategory('Misteriosa')}>Misteriosa</button>
-                        <button className='btn btn-category' onClick={() => setCategory('Pericolosa')}>Pericolosa</button>
-                        <button className='btn btn-category' onClick={() => setCategory('Remota')}>Remota</button>
-                        <button className='btn btn-category' onClick={() => setCategory('Paradisiaca')}>Paradisiaca</button>
+
+                        </div>
+                        <div className='d-flex gap-2'>
+                            <button className='btn btn-category' onClick={() => setSortByAToZ('crescente')} >A → Z</button>
+                            <button className='btn btn-category' value='decrescente' onClick={() => setSortByAToZ('decrescente')}> Z → A</button>
+                        </div>
                     </div>
+
                     <div className='row'>
 
 
