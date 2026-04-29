@@ -35,14 +35,13 @@
 }
 
 .heart:hover{
-    color: aquamarine;
+    color: aqua;
      transform: scale(1.2);
 }
 
 .btn-category {
     border-radius: 20px;
     transition: all 0.2s ease;
-    /* border-color: aqua; */
     background-color: rgb(155, 122, 15);
     color: white;
 }
@@ -164,10 +163,14 @@
     
 }
 
+
+
 .main {
     background: url('./img/sabbia.jpg');
     background-size: cover;
-    min-height: 80%;
+    
+    min-height: 90vh;
+
 }
 
 .compara-selected {
@@ -189,4 +192,46 @@
 .compara-not-selected:hover {
    background: linear-gradient(135deg, #005b98, #2196f3);
   color: white;
+}
+
+.btn-back {
+    border: 1px solid aqua;  
+    background: transparent;   
+    color: aqua;            
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.arrow-back {
+    color: aqua;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background: aqua;  
+    color: white;         
+}
+
+.btn-back:hover .arrow-back {
+    color: white;         
+}
+
+.into-focus-button {
+   
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    background: #00bcd4;
+    color: white;
+    transition: 0.3s;
+    display: block;
+    margin: 10px auto;
+    
+}
+
+.into-focus-button:hover {
+     background: white;
+    transform: scale(1.05);
+    color: #00bcd4
 }

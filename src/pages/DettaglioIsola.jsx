@@ -34,60 +34,63 @@ export default function DettaglioIsola() {
 
 
             <Header />
-            <button className="btn btn-outline-info mb-2" onClick={() => navigate(-1)}>
+            <div className='main'>
 
-                <i className="bi bi-arrow-left back-arrow text-info"></i>Torna indietro
-            </button>
-            <div className='container'>
+                <div className='container'>
+                    <button className="btn btn-back mb-4  mt-4" onClick={() => navigate(-1)}>
+
+                        <i className="bi bi-arrow-left back-arrow arrow-back"></i>Torna indietro
+                    </button>
 
 
-                <img className='img-dettaglio' src={isola.image} alt={isola.title} />
-                <div className="card-body ">
+                    <img className='img-dettaglio' src={isola.image} alt={isola.title} />
+                    <div className="card-body ">
 
-                    <h1 className="card-title mb-3">{isola.title}</h1>
+                        <h1 className="card-title mb-3">{isola.title}</h1>
 
-                    <span className={`badge ${categoryToColor[isola.category]} mb-3`}>
-                        {isola.category}
-                    </span>
+                        <span className={`badge ${categoryToColor[isola.category]} mb-3`}>
+                            {isola.category}
+                        </span>
 
-                    <div className="row">
+                        <div className="row">
 
-                        <div className="col-6">
-                            <strong>Mare:</strong>
-                            <p className="mb-1">{isola.sea}</p>
+                            <div className="col-6">
+                                <strong>Mare:</strong>
+                                <p className="mb-1">{isola.sea}</p>
+                            </div>
+
+                            <div className="col-6">
+                                <strong>Paese:</strong>
+                                <p className="mb-1">{isola.country}</p>
+                            </div>
+
+                            <div className="col-6">
+                                <strong>Continente:</strong>
+                                <p className="mb-1">{isola.continent}</p>
+                            </div>
+
+                            <div className="col-6">
+                                <strong>Clima:</strong>
+                                <p className="mb-1">{isola.climate}</p>
+                            </div>
+
                         </div>
 
-                        <div className="col-6">
-                            <strong>Paese:</strong>
-                            <p className="mb-1">{isola.country}</p>
+                        <hr />
+
+                        <div className="mt-3">
+                            <strong>Caratteristiche:</strong>
+                            <p>{isola.characteristics}</p>
                         </div>
 
-                        <div className="col-6">
-                            <strong>Continente:</strong>
-                            <p className="mb-1">{isola.continent}</p>
+                        <div>
+                            <strong>Specie endemiche:</strong>
+                            <p>{isola.endemicSpecies ? 'Si, ci sono' : 'No, non ci sono'}</p>
                         </div>
 
-                        <div className="col-6">
-                            <strong>Clima:</strong>
-                            <p className="mb-1">{isola.climate}</p>
-                        </div>
-
-                    </div>
-
-                    <hr />
-
-                    <div className="mt-3">
-                        <strong>Caratteristiche:</strong>
-                        <p>{isola.characteristics}</p>
-                    </div>
-
-                    <div>
-                        <strong>Specie endemiche:</strong>
-                        <p>{isola.endemicSpecies ? 'Si, ci sono' : 'No, non ci sono'}</p>
                     </div>
 
                 </div>
-
             </div>
 
             <Footer />

@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from 'react'
+import { useMemo, useState, useCallback, useRef } from 'react'
 import IslandCard from '../components/IslandCard'
 import { useGlobalContext } from '../context/GlobalContext'
 import Header from '../components/Header'
@@ -37,6 +37,10 @@ export default function IsolePage() {
         return sorted
     }, [isole, searchQuery, category])
 
+    const inputRef = useRef(null)
+    function handleFocusOnClick() {
+        inputRef.current.focus()
+    }
 
 
 
@@ -51,6 +55,7 @@ export default function IsolePage() {
                         placeholder="Cerca un'isola"
                         onChange={e => debounceSearch(e.target.value)}
                         className='mt-3 input-search'
+                        ref={inputRef}
                     />
                     <div className='pt-3 pb-3 d-flex gap-2'>
 
@@ -74,6 +79,9 @@ export default function IsolePage() {
                         show={show}
                         onClose={() => setShow(false)}
                     />
+                    <button className='into-focus-button' onClick={handleFocusOnClick}>
+                        Non hai visto l'isola che cercavi? Prova a cercarla!
+                    </button>
                 </div>
             </div>
 
