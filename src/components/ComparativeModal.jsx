@@ -12,6 +12,7 @@ export default function ComparativeModal({ onClose = () => { }, show }) {
     const { setIslandToCompare, islandToCompare } = useComparativeContext()
     const [comparedIsland, setComparedIsland] = useState([])
 
+    //funzione che gestisce la chiusura della modale e svuota islandToCompare
     function handleClose() {
         setIslandToCompare([])
         onClose()
@@ -19,17 +20,20 @@ export default function ComparativeModal({ onClose = () => { }, show }) {
 
     useEffect(() => {
         async function fetchIsole() {
+
             if (show && islandToCompare.length === 2) {
+                //Recupera i 2 id delle isole 
                 const [id1, id2] = islandToCompare.map(island => island.id)
-
-                const results = await Promise.all([
-                    getIsolaById(id1),
-                    getIsolaById(id2)
-                ])
-
-                setComparedIsland(results)
-                console.log(results);
-
+                try {
+                    //Faccio una Promise.all per fare tutte e due le chiamate in parallelo
+                    const results = await Promise.all([
+                        getIsolaById(id1),
+                        getIsolaById(id2)
+                    ])
+                    setComparedIsland(results)
+                } catch (error) {
+                    console.error("Errore nel recupero delle isole:", error)
+                }
             }
         }
         fetchIsole()
@@ -42,8 +46,8 @@ export default function ComparativeModal({ onClose = () => { }, show }) {
             <div className='modal-container'>
                 <div className='custom-modal'>
                     <div className='container d-flex row'>
+                        {/*  Colonna di sinistra nella modale */}
                         <div className='col-6'>
-
                             <div className="card h-100 w-100" >
                                 <img className="card-img-top img-comparative-modal" src={comparedIsland[0]?.island?.image} alt="Card image cap" />
                                 <div className="card-body">
@@ -61,6 +65,7 @@ export default function ComparativeModal({ onClose = () => { }, show }) {
                             </div>
 
                         </div>
+                        {/*  Colonna di destra nella modale */}
                         <div className='col-6'>
                             <div className="card h-100 w-100" >
                                 <img className="card-img-top img-comparative-modal" src={comparedIsland[1]?.island?.image} alt="Card image cap" />

@@ -1,10 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const ComparativeContext = createContext()
 
 function ComparativeProvider({ children }) {
     const [islandToCompare, setIslandToCompare] = useState([])
 
+    //Funzione che aggiunge o rimuove un'isola per la comparazione
     function handleCompare(island) {
         const alreadySelectedToCompare = islandToCompare.some(toCompare => toCompare.id === island.id)
 
@@ -14,7 +15,7 @@ function ComparativeProvider({ children }) {
             setIslandToCompare(curr => [...curr, island])
         }
     }
-
+    //Funzione che controlla se l'isola è già aggiunta
     function isToCompare(island) {
         return islandToCompare.some(toCompare => toCompare.id === island.id)
     }

@@ -3,10 +3,10 @@ import { createContext, useContext, useState } from "react";
 
 const FavouritesContext = createContext()
 
-function PreferitiProvider({ children }) {
+function FavouritesProvider({ children }) {
 
     const [favourites, setFavourites] = useState([])
-
+    //Funzione che aggiunge o rimuove un preferito
     function handleFavourites(island) {
         const alreadyFavourites = favourites.some(favourite => favourite.id === island.id)
 
@@ -44,4 +44,4 @@ function useFavouritesContext() {
 
 
 
-export { PreferitiProvider, useFavouritesContext }
+export { FavouritesProvider, useFavouritesContext }

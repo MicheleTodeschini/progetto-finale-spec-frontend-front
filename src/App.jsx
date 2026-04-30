@@ -5,7 +5,7 @@ import DettaglioIsola from "./pages/DettaglioIsola"
 import PaginaPreferiti from "./pages/PaginaPreferiti"
 import NotFoundPage from "./pages/NotFoundPage"
 import { GlobalProvider } from "./context/GlobalContext"
-import { PreferitiProvider } from "./context/FavouritesContext"
+import { FavouritesProvider } from "./context/FavouritesContext"
 import { ComparativeProvider } from "./context/ComparativeContext"
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
   return (
     <>
       <GlobalProvider>
-        <PreferitiProvider>
+        <FavouritesProvider>
           <ComparativeProvider>
 
             <BrowserRouter>
@@ -28,7 +28,7 @@ export default function App() {
             </BrowserRouter>
           </ComparativeProvider>
 
-        </PreferitiProvider>
+        </FavouritesProvider>
 
       </GlobalProvider>
 
