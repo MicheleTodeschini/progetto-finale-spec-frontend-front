@@ -12,6 +12,8 @@ const IslandCard = React.memo(({ isola, setShow }) => {
     const { handleCompare, islandToCompare, isToCompare } = useComparativeContext()
 
     useEffect(() => {
+
+        //Condizione che attiva la modale
         if (islandToCompare.length === 2) {
             setShow(true);
         }

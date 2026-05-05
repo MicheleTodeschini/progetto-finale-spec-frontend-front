@@ -48,12 +48,21 @@ export default function IsolePage() {
     function handleFocusOnClick() {
         inputRef.current.focus()
     }
-    const categories = [
-        'Paradisiaca',
-        'Remota',
-        'Misteriosa',
-        'Pericolosa'
-    ]
+    /*   const categories = [
+          'Paradisiaca',
+          'Remota',
+          'Misteriosa',
+          'Pericolosa'
+      ] */
+
+    const categories = isole.map(i => i.category)
+    console.log(categories);
+    const filteredCategories = [...new Set(categories)]
+    console.log(filteredCategories);
+
+
+
+
 
 
     return (
@@ -73,7 +82,7 @@ export default function IsolePage() {
                         <div className='d-flex gap-2'>
                             <button className='btn btn-category' onClick={() => setCategory('')}>Tutte</button>
                             {
-                                categories.map(categoria => (
+                                filteredCategories.map(categoria => (
                                     <button className='btn btn-category' onClick={() => setCategory(categoria)}>{categoria}</button>
                                 ))
                             }
