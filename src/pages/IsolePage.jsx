@@ -6,9 +6,15 @@ import ComparativeModal from '../components/ComparativeModal'
 import Footer from '../components/Footer'
 
 function debounce(callback, delay) {
+
     let timer
+
+    // Funzione che posticipa l'esecuzione della callback
     return (value) => {
+
         clearTimeout(timer)
+
+        //Aggiorno il valore di timer per eseguire la callback allo scadere di timer
         timer = setTimeout(() => {
             callback(value)
         }, delay)
@@ -25,6 +31,7 @@ export default function IsolePage() {
 
     const [show, setShow] = useState(false)
 
+    // const dove avviene il sorting, search e filtro per categoria
     const sortedIsland = useMemo(() => {
         let sorted = [...isole]
 
@@ -44,21 +51,18 @@ export default function IsolePage() {
         return sorted
     }, [isole, searchQuery, category, sortByAToZ])
 
+    // Porta il focus sull'input di ricerca usando Ref
     const inputRef = useRef(null)
     function handleFocusOnClick() {
         inputRef.current.focus()
     }
-    /*   const categories = [
-          'Paradisiaca',
-          'Remota',
-          'Misteriosa',
-          'Pericolosa'
-      ] */
 
+    //Recupero tutte le categorie
     const categories = isole.map(i => i.category)
-    console.log(categories);
+
+    //Creo array usando Set SENZA le categorie ripetute
     const filteredCategories = [...new Set(categories)]
-    console.log(filteredCategories);
+
 
 
 
