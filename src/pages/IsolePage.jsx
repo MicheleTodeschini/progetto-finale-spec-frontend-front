@@ -28,7 +28,7 @@ export default function IsolePage() {
     const [category, setCategory] = useState('')
     const debounceSearch = useCallback(debounce(setSearchQuery, 500), [])
     const [sortByAToZ, setSortByAToZ] = useState('crescente')
-
+    const inputRef = useRef(null)
     const [show, setShow] = useState(false)
 
     // const dove avviene il sorting, search e filtro per categoria
@@ -52,7 +52,7 @@ export default function IsolePage() {
     }, [isole, searchQuery, category, sortByAToZ])
 
     // Porta il focus sull'input di ricerca usando Ref
-    const inputRef = useRef(null)
+
     function handleFocusOnClick() {
         inputRef.current.focus()
     }
@@ -102,11 +102,17 @@ export default function IsolePage() {
                     <div className='row'>
 
 
-                        {
-                            sortedIsland.map(isola => (
-                                <IslandCard setShow={setShow} isola={isola} key={isola.id} />
-                            ))
-                        }
+                        {sortedIsland.length === 0 ? (
+                            <div>
+                                <h1 className='text-center pt-5'>Nessun'isola corrisponde con quelle di nostra conoscenza. Sicuro che sia già stata scoperta?</h1>
+                            </div>
+                        ) :
+                            (
+                                sortedIsland.map(isola => (
+                                    <IslandCard setShow={setShow} isola={isola} key={isola.id} />
+                                ))
+
+                            )}
                     </div>
                     <ComparativeModal
                         isola={isole}
@@ -114,7 +120,7 @@ export default function IsolePage() {
                         onClose={() => setShow(false)}
                     />
                     <button className='into-focus-button' onClick={handleFocusOnClick}>
-                        Non hai visto l'isola che cercavi? Prova a cercarla!
+                        Non hai visto l'isola che ti interessa? Prova a cercarla!
                     </button>
                 </div>
             </div>
