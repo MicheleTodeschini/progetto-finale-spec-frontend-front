@@ -1,11 +1,24 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 
 const FavouritesContext = createContext()
 
 function FavouritesProvider({ children }) {
 
-    const [favourites, setFavourites] = useState([])
+    const [favourites, setFavourites] = useState(() => {
+
+        //Controllo se ho dei preferiti salvati nel localStorage
+        const saved = localStorage.getItem('favourites')
+        return saved ? JSON.parse(saved) : []
+    })
+
+    //Aggiungo dei prefiti nel localStorage
+    useEffect(() => {
+        localStorage.setItem('favourites', JSON.stringify(favourites))
+    }, [favourites])
+
+
+
     //Funzione che aggiunge o rimuove un preferito
     function handleFavourites(island) {
         const alreadyFavourites = favourites.some(favourite => favourite.id === island.id)
