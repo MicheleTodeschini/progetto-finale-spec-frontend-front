@@ -40,9 +40,7 @@ function GlobalProvider({ children }) {
             return null;
         }
     }
-
-    //getIsolaById(2)
-
+    
     useEffect(() => {
         getIsole();
     }, []);

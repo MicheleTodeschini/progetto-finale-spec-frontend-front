@@ -73,6 +73,10 @@ export default function DettaglioIsola() {
                                 <strong>Clima:</strong>
                                 <p className="mb-1">{isola.climate}</p>
                             </div>
+                            <div className="col-6">
+                                <strong>Popolazione:</strong>
+                                <p className="mb-1">{isola?.population ? `Circa ${isola.population} persone` : "L'isola è disabitata"}</p>
+                            </div>
 
                         </div>
 
